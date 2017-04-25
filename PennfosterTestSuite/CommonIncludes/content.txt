@@ -1,0 +1,3 @@
+!include -c <PennfosterTestSuite.CommonFiles.CommonConfigurations
+!include -c <PennfosterTestSuite.CommonFiles.DataAndLocatorObjects
+!include -c <PennfosterTestSuite.CommonFiles.CommonScenarios

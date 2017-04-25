@@ -1,0 +1,18 @@
+|import                          |
+|net.indecomm.autong.api.fitnesse|
+
+
+!include -c <PennfosterTestSuite.CommonIncludes
+
+
+!|Script | AutomationNG |
+|set test|{PAGE_NAME}|
+|set result name |${PAGE_NAME}|at path |${PAGE_PATH}|
+|start browser| firefox|
+|maximize browser|
+|open URL| https://s-my.pennfoster.com/StudentLMSPFX/ |
+| read data from excel sheet |
+| verify billing details |
+| verify resources |
+| logout |
+|close browser|

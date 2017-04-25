@@ -1,0 +1,58 @@
+!| Scenario | verify billing details | 
+| wait for element | {$DEFAULTDASHBOARD.spanlinktext} |
+|click | {$DEFAULTDASHBOARD.spanlinktext}|
+| wait for element | {$BILLINGPAYMENTS.headerh} |
+|variable |isTrue|equals to|
+|verify page contains | {$BILLINGPAYMENTS.headerh}|  element |
+|assert |{$isTrue}| true with message|verify billing summary exists|
+
+
+!|Scenario |set result name | resultname |at path| pagepath |
+|variable  |suitePath   |equals to  |
+|get absolute page path|@pagepath |
+
+
+
+!| Scenario | read data from excel sheet | 
+| load | Sample | excel sheet from | {$suitePath}/data/data.xlsx | in | read | mode |
+| variable | username | equals to |
+| get from excel row | 2 | with column name | username |
+| variable | password | equals to |
+| get from excel row | 2 | with column name | password |
+| variable | role | equals to |
+| get from excel row | 2 | with column name | role |
+| unload excel sheet |
+
+
+!| Scenario | verify resources | 
+| wait for element | {$BILLINGPAYMENTS.spanlinktextresources} |
+|click | {$BILLINGPAYMENTS.spanlinktextresources}|
+| wait for element | {$RESOURCES.linkjpvideoplayiconplay} |
+|click | {$RESOURCES.linkjpvideoplayiconplay}|
+| wait for element | {$RESOURCES.linkjppausepause} |
+|variable |isTrue|equals to|
+|verify page contains | {$RESOURCES.linkjppausepause}|  element |
+|assert |{$isTrue}| true with message|verify pause action|
+
+
+!| Scenario | login with  | username |  and  | role |  and  | password  | 
+| wait for element | {$STUDENTLMSPFX.textparam} |
+|click | {$STUDENTLMSPFX.textparam}|
+| wait for element | {$STUDENTLMSPFX.textparam} |
+|type | @username|into | {$STUDENTLMSPFX.textparam}|text field |
+| wait for element | {$STUDENTLMSPFX.selectparamtype} |
+|select index number | @role|from | {$STUDENTLMSPFX.selectparamtype}|
+| wait for element | {$STUDENTLMSPFX.buttonbtnprimarycontinue} |
+|click | {$STUDENTLMSPFX.buttonbtnprimarycontinue}|
+| wait for element | {$LOGIN.textpassword} |
+|click | {$LOGIN.textpassword}|
+| wait for element | {$LOGIN.textpassword} |
+|type | @password|into | {$LOGIN.textpassword}|text field |
+| wait for element | {$LOGIN.buttonbtnprimarysignin} |
+|click | {$LOGIN.buttonbtnprimarysignin}|
+| wait for element | {$DEFAULTDASHBOARD.spanstudentidnumber} |
+|variable |isTrue|equals to|
+|verify page contains | {$DEFAULTDASHBOARD.spanstudentidnumber}|  element |
+|assert |{$isTrue}| true with message|verify student id exists|
+
+
