@@ -1,0 +1,66 @@
+|Object Repository|LOGINPAGE           |
+|Id               |Value          |Type|
+|loginlink        |loginLogoutLink|id  |
+|usernamefield    |loginId        |id  |
+|passwordfield    |password       |id  |
+|lastnamefield    |lastName       |id  |
+|loginbutton      |button_login   |id  |
+
+|Object Repository |SEARCHPAGE                                         |
+|Id                |Value                                         |Type|
+|myaccountmenulink |myAccountDropdown                             |id  |
+|advancedsearchlink|advBookingSearch                              |id  |
+|fromfield         |reservationFlightSearchForm.originAirport     |id  |
+|tofield           |reservationFlightSearchForm.destinationAirport|id  |
+|todatefield       |aa-leavingOn                                  |id  |
+|returndatefield   |aa-returningFrom                              |id  |
+|classselect       |revenueCabin                                  |id  |
+|searchbutton      |flightSearchForm.button.reSubmit              |id  |
+|logoutlink        |loginLogoutLink                               |id  |
+
+|Object Repository      |SEARCHRESULTSPAGE      |
+|Id                     |Value             |Type|
+|firsttoresultbutton    |slice0Flight0First|id  |
+|firstreturnresultbutton|slice1Flight0First|id  |
+
+|Object Repository|SELECTIONSUMMARYPAGE                                                        |
+|Id               |Value                                                                 |Type |
+|todeparturetime  |(.//*[@id='tripSummaryForm']//span[contains(@class,'flight-time')])[1]|xpath|
+|toarrivaltime    |(.//*[@id='tripSummaryForm']//span[contains(@class,'flight-time')])[2]|xpath|
+|fromdeparturetime|(.//*[@id='tripSummaryForm']//span[contains(@class,'flight-time')])[3]|xpath|
+|fromarrivaltime  |(.//*[@id='tripSummaryForm']//span[contains(@class,'flight-time')])[4]|xpath|
+|cost             |.//*[@id='tripSummaryForm']//span[@class='cost']                      |xpath|
+|continuebutton   |button_continue                                                       |id   |
+
+|Object Repository|PASSENGERINFOPAGE                                                                    |
+|Id               |Value                                                                          |Type |
+|citypair         |.//*[@id='tripDetailsSection']//span[contains(@class,'hidden-phone city-pair')]|xpath|
+|firstnamefield   |passengers0.personalInformationForm.firstName                                  |id   |
+|middlenamefield  |passengers0.personalInformationForm.middleName                                 |id   |
+|lastnamefield    |passengers0.personalInformationForm.lastName                                   |id   |
+|continuebutton   |passenger_button                                                               |id   |
+
+|Object Repository|SEATSELECTIONPAGE    |
+|Id               |Value           |Type|
+|nextbutton       |nextFlightButton|id  |
+
+|Object Repository|PAYMENTSPAGE                                                                  |
+|Id               |Value                                                                   |Type |
+|toflightnumber   |(.//td[@class='hidden-phone']//span[@class='flightCardFlightNumber'])[1]|xpath|
+|fromflightnumber |(.//td[@class='hidden-phone']//span[@class='flightCardFlightNumber'])[2]|xpath|
+|totalcost        |.//*[@id='yourTotal']//span[@class='costSummary-price-number']          |xpath|
+|onholdradio      |reservationHold                                                         |id   |
+|holdtillradio    |.//*[@data-holdprice='Free']                                            |xpath|
+|holdbutton       |holdBttn                                                                |id   |
+
+|Object Repository|SUMMARYPAGE                                                                              |
+|Id               |Value                                                                              |Type |
+|aarecordlocator  |.//*[@id='aa-trip-dashboard-summary']//strong[contains(@class,'aa-record-locator')]|xpath|
+|mytripslink      |.//div[@class='aa-msg-important']//a[text()='My Trips']                            |xpath|
+
+|Object Repository  |MYTRIPSPAGE                                   |
+|Id                 |Value                                   |Type |
+|cancellink         |.//*[@id='cancelCell']/a                |xpath|
+|confirmcancelbutton|cancelReservationVerification.button.yes|id   |
+|backtomytripsbutton|viewReservationsAccess.back.submit      |id   |
+|removefromlistlink |.//*[@id='removeCell']/a                |xpath|

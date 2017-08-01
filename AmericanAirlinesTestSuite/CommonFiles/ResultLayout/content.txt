@@ -1,0 +1,5 @@
+|Report Layout|demostyle                |
+|Key          |Column Name|Description  |
+|ID           |ID         |Test ID      |
+|RES          |RESULT     |             |
+|CMT          |COMMENTS   |Test Comments|

@@ -1,0 +1,3 @@
+!include -c <AmericanAirlinesTestSuite.CommonFiles.ConfigPage
+!include -c <AmericanAirlinesTestSuite.CommonFiles.ReadDataFromExcel
+!include -c <AmericanAirlinesTestSuite.CommonFiles.CommonScenarios

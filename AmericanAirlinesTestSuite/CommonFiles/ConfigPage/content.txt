@@ -1,0 +1,4 @@
+!|ConfigTable       |
+|key          |value|
+|PAGE_TIME_OUT|10   |
+|WAIT_TIME_OUT|60   |
