@@ -1,8 +1,0 @@
-!contents  -p -f -g
-
-!path FitNesseRoot/lib/*.jar
-!define TEST_SYSTEM {slim}
-!define SLIM_PORT {0}
-!define DEFAULT_BROWSER {firefox}
-!define DEFAULT_URL {https://www.americanairlines.com/homePage.do?locale=en_US}
-
