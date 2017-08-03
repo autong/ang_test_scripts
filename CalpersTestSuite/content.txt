@@ -1,0 +1,7 @@
+!contents -R2 -g -p -f -h
+
+!path FitNesseRoot/lib/*.jar
+!define TEST_SYSTEM {slim}
+!define SLIM_PORT {0}
+!define DEFAULT_URL {https://www-moint-mycalpers.calpers.ca.gov/env04/int/home/systemaccess/login.html?scheme=env04_int_ldap}
+!define DEFAULT_BROWSER {chrome}

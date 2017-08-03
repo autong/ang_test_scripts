@@ -1,0 +1,16 @@
+|import                          |
+|net.indecomm.autong.api.fitnesse|
+
+!include -c <CalpersTestSuite.CommonLibraries
+
+!|Script                     |AutomationNG                          |
+|set test                    |${PAGE_NAME}                          |
+|set result name             |${PAGE_NAME}|at path     |${PAGE_PATH}|
+|start browser and open url                                         |
+|login with username         |superuserint|and password|MaskedData10|
+|search for calpers id       |{$calpersId}                          |
+|validate participant                                               |
+|upload document                                                    |
+|test workflow for calpers id|{$calpersId}                          |
+|validate benefits                                                  |
+|close browser                                                      |

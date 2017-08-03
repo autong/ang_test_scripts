@@ -1,0 +1,2 @@
+!include -c <CalpersTestSuite.CommonFiles.ConfigPage
+!include -c <CalpersTestSuite.CommonFiles.CommonScenarios

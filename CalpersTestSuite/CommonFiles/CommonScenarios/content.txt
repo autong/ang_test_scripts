@@ -1,0 +1,144 @@
+!include -c <CalpersTestSuite.CommonFiles.PageLocators
+
+!|Scenario         |login with username _ and password _|username,password                                      |
+|wait  for  element|{$LOGINPAGE.usernamefield}                                                                  |
+|type              |@username                           |into             |{$LOGINPAGE.usernamefield}|text field|
+|type              |@password                           |into             |{$LOGINPAGE.passwordfield}|text field|
+|click             |{$LOGINPAGE.loginbutton}                                                                    |
+|variable          |loginSuccess                        |equals  to                                             |
+|wait  for  element|{$HOMEPAGE.participantlink}                                                                 |
+|assert            |{$loginSuccess}                     |true with message|Assert login success                 |
+
+!|Scenario         |search for calpers id _|cid                                       |
+|click             |{$HOMEPAGE.participantlink}                                       |
+|wait  for  element|{$HOMEPAGE.clapersidfield}                                        |
+|type              |@cid                   |into|{$HOMEPAGE.clapersidfield}|text field|
+|click             |{$HOMEPAGE.searchbutton}                                          |
+
+!|Scenario         |validate participant                                                                  |
+|variable          |participantExists   |equals  to                                                       |
+|wait  for  element|{$HOMEPAGE.preretbenefitinfolink}                                                     |
+|assert            |{$participantExists}|true with message|Assert participant exists                      |
+|click             |{$HOMEPAGE.preretbenefitinfolink}                                                     |
+|variable          |isActive            |equals  to                                                       |
+|wait  for  element|{$HOMEPAGE.isactivelabel}                                                             |
+|assert            |{$isActive}         |true with message|Assert participant is active                   |
+|variable          |isEnrolled          |equals  to                                                       |
+|wait  for  element|{$HOMEPAGE.isenrolledlabel}                                                           |
+|assert            |{$isEnrolled}       |true with message|Assert participant is enrolled in health scheme|
+
+!|Scenario         |upload document                                                                           |
+|click             |{$HOMEPAGE.commontaskslink}                                                               |
+|wait  for  element|{$HOMEPAGE.dochistorylink}                                                                |
+|click             |{$HOMEPAGE.dochistorylink}                                                                |
+|wait  for  element|{$HOMEPAGE.uploaddoclink}                                                                 |
+|click             |{$HOMEPAGE.uploaddoclink}                                                                 |
+|wait  for  element|{$HOMEPAGE.doccategoryselect}                                                             |
+|select            |Service Retirement                    |from             |{$HOMEPAGE.doccategoryselect}    |
+|select            |!-my|CalPERS 1206-!                   |from             |{$HOMEPAGE.docnumselect}         |
+|upload  file      |C:\\Users\\psr_auto\\Desktop\\TEST.pdf|by               |{$HOMEPAGE.uploadbutton}         |
+|select            |Valid                                 |from             |{$HOMEPAGE.docstatusselect}      |
+|click             |{$HOMEPAGE.calperspgmcheckbox}                                                            |
+|click             |{$HOMEPAGE.savebutton}                                                                    |
+|variable          |documentSaved                         |equals  to                                         |
+|wait  for  element|{$HOMEPAGE.isuploadedlink}                                                                |
+|assert            |{$documentSaved}                      |true with message|Assert retirement process started|
+
+!|Scenario            |test workflow for calpers id _           |cid                                                             |
+|wait  for  element   |{$WORKFLOWPAGE.workflowlink}                                                                              |
+|click                |{$WORKFLOWPAGE.workflowlink}                                                                              |
+|wait  for  element   |{$WORKFLOWPAGE.workinventorylink}                                                                         |
+|click                |{$WORKFLOWPAGE.workinventorylink}                                                                         |
+|wait  for  element   |{$WORKFLOWPAGE.queueselect}                                                                               |
+|select               |Retirement Application Review            |from             |{$WORKFLOWPAGE.queueselect}                   |
+|select               |Enter Service Retirement Application Data|from             |{$WORKFLOWPAGE.taskselect}                    |
+|click                |{$WORKFLOWPAGE.displaybutton}                                                                             |
+|wait  for  element   |{$WORKFLOWPAGE.tasklistfilterfield}                                                                       |
+|type                 |@cid                                     |into             |{$WORKFLOWPAGE.tasklistfilterfield}|text field|
+|variable             |taskListExists                           |equals  to                                                      |
+|wait  for  element   |{$WORKFLOWPAGE.firstitemlink}                                                                             |
+|assert               |{$taskListExists}                        |true with message|Assert task item exists                       |
+|click                |{$WORKFLOWPAGE.firstitemlink}                                                                             |
+|wait  for  element   |{$WORKFLOWPAGE.continuebutton}                                                                            |
+|click                |{$WORKFLOWPAGE.continuebutton}                                                                            |
+|wait  for  element   |{$WORKFLOWPAGE.lastdatefield}                                                                             |
+|type                 |08/01/2017                               |into             |{$WORKFLOWPAGE.lastdatefield}      |text field|
+|type                 |08/02/2017                               |into             |{$WORKFLOWPAGE.retefdatefield}     |text field|
+|type                 |0.000                                    |into             |{$WORKFLOWPAGE.sickleavefield}     |text field|
+|click                |{$WORKFLOWPAGE.saveandcontinuebutton}                                                                     |
+|wait  for  element   |{$WORKFLOWPAGE.benefitoptionselect}                                                                       |
+|select               |Unmodified Allowance                     |from             |{$WORKFLOWPAGE.benefitoptionselect}           |
+|click                |{$WORKFLOWPAGE.displayoptionbutton}                                                                       |
+|wait  for  element   |{$WORKFLOWPAGE.saveandcontinuecommonebutton}                                                              |
+|click                |{$WORKFLOWPAGE.saveandcontinuecommonebutton}                                                              |
+|variable             |hasBenefits                              |equals  to                                                      |
+|wait  for  element   |{$WORKFLOWPAGE.hasbenefitscheckbox}                                                                       |
+|If                   |{$hasBenefits}                                                                                            |
+|click                |{$WORKFLOWPAGE.hasbenefitscheckbox}                                                                       |
+|End If                                                                                                                          |
+|click                |{$WORKFLOWPAGE.continuebutton}                                                                            |
+|wait  for  element   |{$WORKFLOWPAGE.marriednoradio}                                                                            |
+|click                |{$WORKFLOWPAGE.marriednoradio}                                                                            |
+|wait  for  element   |{$WORKFLOWPAGE.divorcedradio}                                                                             |
+|click                |{$WORKFLOWPAGE.divorcedradio}                                                                             |
+|click                |{$WORKFLOWPAGE.saveandcontinuecommonebutton}                                                              |
+|wait  for  element   |{$WORKFLOWPAGE.notmarriedcheckbox}                                                                        |
+|click                |{$WORKFLOWPAGE.notmarriedcheckbox}                                                                        |
+|loop                 |3                                        |times                                                           |
+|pause  execution  for|4                                        |seconds                                                         |
+|click                |{$WORKFLOWPAGE.saveandcontinuecommonebutton}                                                              |
+|end  loop                                                                                                                       |
+|wait  for  element   |{$WORKFLOWPAGE.withholdtaxradio}                                                                          |
+|click                |{$WORKFLOWPAGE.withholdtaxradio}                                                                          |
+|wait  for  element   |{$WORKFLOWPAGE.maritalstatusselect}                                                                       |
+|select               |Single                                   |from             |{$WORKFLOWPAGE.maritalstatusselect}           |
+|click                |{$WORKFLOWPAGE.withholdtenpctradio}                                                                       |
+|click                |{$WORKFLOWPAGE.saveandcontinuecommonebutton}                                                              |
+|wait  for  element   |{$WORKFLOWPAGE.paymentpaperradio}                                                                         |
+|click                |{$WORKFLOWPAGE.paymentpaperradio}                                                                         |
+|click                |{$WORKFLOWPAGE.displaydetailsbutton}                                                                      |
+|wait  for  element   |{$WORKFLOWPAGE.addresslineonefield}                                                                       |
+|type                 |400 P St                                 |into             |{$WORKFLOWPAGE.addresslineonefield}|text field|
+|type                 |Sacramento                               |into             |{$WORKFLOWPAGE.cityfield}          |text field|
+|type                 |95811                                    |into             |{$WORKFLOWPAGE.zipcodefield}       |text field|
+|click                |{$WORKFLOWPAGE.saveandcontinuecommonebutton}                                                              |
+|wait  for  element   |{$WORKFLOWPAGE.confirmbutton}                                                                             |
+|click                |{$WORKFLOWPAGE.confirmbutton}                                                                             |
+|wait  for  element   |{$WORKFLOWPAGE.saveandcontinuecommonebutton}                                                              |
+|click                |{$WORKFLOWPAGE.saveandcontinuecommonebutton}                                                              |
+|variable             |enrollDateGenrated                       |equals  to                                                      |
+|wait  for  element   |{$WORKFLOWPAGE.enrollmentstartdatelabel}                                                                  |
+|variable             |enrollmentStart                          |equals  to                                                      |
+|get  text  from      |{$WORKFLOWPAGE.enrollmentstartdatelabel}                                                                  |
+|assert               |{$enrollDateGenrated}                    |true with message|{$enrollmentStart}                            |
+|click                |{$WORKFLOWPAGE.havepaperradio}                                                                            |
+|click                |{$WORKFLOWPAGE.submitapplicationbutton}                                                                   |
+|variable             |submissionSuccess                        |equals  to                                                      |
+|wait  for  element   |{$WORKFLOWPAGE.retirementdatelabel}                                                                       |
+|assert               |{$submissionSuccess}                     |true with message|Assert application submitted successfully     |
+
+!|Scenario         |validate benefits                                                         |
+|click             |{$WORKFLOWPAGE.benefitslink}                                              |
+|variable          |benefitsStatusExist   |equals  to                                         |
+|wait  for  element|{$WORKFLOWPAGE.benefitsstatuslabel}                                       |
+|variable          |benefitsStatus        |equals  to                                         |
+|get  text  from   |{$WORKFLOWPAGE.benefitsstatuslabel}                                       |
+|assert            |{$benefitsStatusExist}|true with message|Benefits status {$benefitsStatus}|
+
+
+!|Scenario    |start browser and open url|
+|start browser|${DEFAULT_BROWSER}        |
+|open         |${DEFAULT_URL}    |URL    |
+|maximize  browser                       |
+
+!|Scenario             |set result name|name|at path|path|
+|variable              |suitePath      |equals  to       |
+|get absolute page path|@path                            |
+|read data from excel                                    |
+
+
+!|Scenario          |read data from excel                                                       |
+|load               |cid      |excel  sheet  from|{$suitePath}/data/input_data.xlsx|in|read|mode|
+|variable           |calpersId|equals  to                                                       |
+|get  from excel row|2        |with column name  |calpersid                                     |
+|unload  excel sheet                                                                            |

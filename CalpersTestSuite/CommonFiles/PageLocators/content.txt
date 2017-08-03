@@ -1,0 +1,65 @@
+|Object Repository|LOGINPAGE                       |
+|Id               |Value                     |Type |
+|usernamefield    |userid                    |id   |
+|passwordfield    |.//input[@type='password']|xpath|
+|loginbutton      |.//input[@value='Log In'] |xpath|
+
+|Object Repository    |HOMEPAGE                                                                             |
+|Id                   |Value                                                                          |Type |
+|participantlink      |.//*[@id='primary']//a[text()='Participant']                                   |xpath|
+|clapersidfield       |searchCriteria.calpersId                                                       |id   |
+|searchbutton         |submit123                                                                      |id   |
+|preretbenefitinfolink|Pre-RetirementBenefitInformation_link                                          |id   |
+|isactivelabel        |.//*[@id='Pre-RetirementBenefitInformation']//legend[contains(text(),'Active')]|xpath|
+|isenrolledlabel      |.//*[@id='HealthBenefitInformation']//legend[contains(text(),'Enrolled')]      |xpath|
+|commontaskslink      |.//*[@id='leftNavHeader_2']/a[contains(.,'Common Tasks')]                      |xpath|
+|dochistorylink       |.//*[@id='common_left_group_2']//a[text()='Document History']                  |xpath|
+|uploaddoclink        |.//*[@id='documentHistorySearchForm']/div[5]/a                                 |xpath|
+|doccategoryselect    |documentCustomerAssociationDto.correspondenceBo.functionalCategory             |id   |
+|docnumselect         |documentCustomerAssociationDto.correspondenceBo.refDocumentId                  |id   |
+|uploadbutton         |file                                                                           |id   |
+|docstatusselect      |documentCustomerAssociationDto.correspondenceBo.documentStatus                 |id   |
+|calperspgmcheckbox   |selectedProgramTypesCPE                                                        |id   |
+|savebutton           |.//input[@value='Save']                                                        |xpath|
+|isuploadedlink       |.//input[@id='upload']/following-sibling::a                                    |xpath|
+
+|Object Repository           |WORKFLOWPAGE                                                                                                  |
+|Id                          |Value                                                                                                   |Type |
+|workflowlink                |.//*[@id='primary']//a[text()='Workflow']                                                               |xpath|
+|workinventorylink           |.//*[@id='secondary']//a[text()='Work Inventory']                                                       |xpath|
+|queueselect                 |workflowInventoryDto.selectedQueue                                                                      |id   |
+|taskselect                  |workflowInventoryDto.selectedTaskType                                                                   |id   |
+|displaybutton               |displayButton                                                                                           |id   |
+|tasklistfilterfield         |.//*[@id='taskList_filter']/label/input                                                                 |xpath|
+|firstitemlink               |.//*[@id='taskList']/tbody/tr[1]/td[1]/a                                                                |xpath|
+|continuebutton              |.//*[@id='BenefitApplicationChoices']//input[@name='action.actionContinue']                             |xpath|
+|istypeserretirementlabel    |.//*[@id='BasicInformationAboutRetirement']/table/tbody/tr[1]/td[contains(text(),'Service Retirement')] |xpath|
+|lastdatefield               |basicInformationAboutRetirementPanel.benefitBasicInfoBo.lastPayrollDate                                 |id   |
+|retefdatefield              |basicInformationAboutRetirementPanel.benefitBasicInfoBo.benefitEffectiveDate                            |id   |
+|sickleavefield              |basicInformationAboutRetirementPanel.benefitBasicInfoBo.sickLeaveDay                                    |id   |
+|saveandcontinuebutton       |//input[@name='action.actionSaveContinue']                                                              |xpath|
+|benefitoptionselect         |benefitOptionSelectionBo.lovBenefitOptTypeCd                                                            |id   |
+|displayoptionbutton         |.//*[@id='RetirementPaymentOptions']//input[@name='action.actionDisplay']                               |xpath|
+|hasbenefitscheckbox         |.//input[@name='selectAvilableBenefits' and contains(@checked,'checked')]                               |xpath|
+|continuebutton              |.//input[@value='Continue']                                                                             |xpath|
+|marriednoradio              |marriedRadioNo                                                                                          |id   |
+|divorcedradio               |divorced                                                                                                |id   |
+|saveandcontinuecommonebutton|.//input[@value='Save & Continue']                                                                      |xpath|
+|notmarriedcheckbox          |marriedRegisteredDomesticPartnerInd                                                                     |id   |
+|withholdtaxradio            |withholdTaxTables                                                                                       |id   |
+|maritalstatusselect         |maritalStatusCode                                                                                       |id   |
+|numofallowancesfield        |numExemption                                                                                            |id   |
+|withholdtenpctradio         |withhold10percent                                                                                       |id   |
+|paymentpaperradio           |paper                                                                                                   |id   |
+|displaydetailsbutton        |.//input[@value='Display Details']                                                                      |xpath|
+|addresslineonefield         |address1                                                                                                |id   |
+|cityfield                   |checkDetailsPanel.partyAddressBo.address.city                                                           |id   |
+|zipcodefield                |zipCode5                                                                                                |id   |
+|confirmbutton               |.//input[@value='Confirm']                                                                              |xpath|
+|enrollmentstartdatelabel    |.//*[@id='CalPERSHealthCoverage']/fieldset[contains(.,'Your Retired Health')]                           |xpath|
+|havepaperradio              |internalSignature1                                                                                      |id   |
+|submitapplicationbutton     |.//input[@value='Submit Application']                                                                   |xpath|
+|retirementdatelabel         |.//*[@id='RetirementAcknowledgement']/table/tbody/tr/td[text()='Retirement Date:']/following-sibling::td|xpath|
+|benefitslink                |.//a[text()='Benefits']                                                                                 |xpath|
+|benefitsstatuslabel         |.//*[@id='Benefits']/table/tbody/tr/td[4]                                                               |xpath|
+
