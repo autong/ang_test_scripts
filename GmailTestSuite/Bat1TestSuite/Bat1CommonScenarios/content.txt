@@ -1,0 +1,1 @@
+!include -c <GmailTestSuite.Bat1TestSuite.Bat1CommonScenarios.Bat1PageObjects

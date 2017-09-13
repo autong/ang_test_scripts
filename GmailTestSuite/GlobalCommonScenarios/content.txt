@@ -1,0 +1,94 @@
+!include -c <GmailTestSuite.GlobalCommonScenarios.GlobalPageObjects
+
+'''Scenarios for initializing the reports, open browser, url'''
+
+!| Scenario            |set result name _ at path _|resultname, pagepath|
+|variable              |suitePath                  |equals to           |
+|get Absolute Page Path|@pagepath                                       |
+
+!| Scenario           |start browser and open url _|url          |
+|start browser        |${DEFAULT_BROWSER}                        |
+|maximize browser                                                |
+|open URL             |@url                                      |
+|variable             |currentBrowser              |equals  to   |
+|show                 |get current browser                       |
+|variable             |isExplorer                  |equals  to   |
+|verify               |{$currentBrowser}           |with|explorer|
+|set page time out    |1                                         |
+|pause  execution  for|4                           |seconds      |
+|variable             |isOtherPage                 |equals  to   |
+|verify page contains |.//a[text()='Sign In']      |element      |
+|set page time out    |30                                        |
+|If                   |{$isOtherPage}                            |
+|click                |.//a[text()='Sign In']                    |
+|End If                                                          |
+
+!| Scenario           |login with username _ and password _|username,password                         |
+|type                 |@username                           |into|{$LOGIN.usernamefield}    |text field|
+|set page time out    |1                                                                              |
+|variable             |passwordExists                      |equals  to                                |
+|verify page contains |{$LOGIN.passwordfield}              |element                                   |
+|set page time out    |30                                                                             |
+|If                   |{$passwordExists}                                                              |
+|type                 |@password                           |into|{$LOGIN.passwordfield}    |text field|
+|click                |{$LOGIN.loginbutton}                                                           |
+|Else                                                                                                 |
+|If                   |{$isExplorer}                                                                  |
+|send robot           |ENTER                               |key                                       |
+|Else                                                                                                 |
+|click                |{$LOGIN.nextbutton}                                                            |
+|End If                                                                                               |
+|wait  for  element   |{$LOGIN.passwordfield}                                                         |
+|type                 |@password                           |into|{$LOGIN.passwordfield}    |text field|
+|click                |{$LOGIN.loginbutton}                                                           |
+|pause  execution  for|5                                   |seconds                                   |
+|set page time out    |1                                                                              |
+|variable             |recoveryMailExists                  |equals  to                                |
+|verify page contains |{$LOGIN.confirmrecoverymailbutton}  |element                                   |
+|set page time out    |30                                                                             |
+|If                   |{$recoveryMailExists}                                                          |
+|click                |{$LOGIN.confirmrecoverymailbutton}                                             |
+|wait  for  element   |{$LOGIN.recoverymailfield}                                                     |
+|type                 |bhagavan.kailar@gmail.com           |into|{$LOGIN.recoverymailfield}|text field|
+|click                |{$LOGIN.recoverynextbutton}                                                    |
+|End If                                                                                               |
+|End If                                                                                               |
+
+!| Scenario           |verify login action                                                                  |
+|variable             |loginSuccess                               |equals to                                |
+|wait for element     |{$INBOX.composebutton}                                                               |
+|assert               |{$loginSuccess}                            |true with message|Verify login is success|
+|set page time out    |1                                                                                    |
+|variable             |chromeHeaderExists                         |equals  to                               |
+|verify page contains |.//a[text()='NO THANKS' and @role='button']|element                                  |
+|set page time out    |30                                                                                   |
+|If                   |{$chromeHeaderExists}                                                                |
+|click                |.//a[text()='NO THANKS' and @role='button']                                          |
+|pause  execution  for|2                                          |seconds                                  |
+|End If                                                                                                     |
+
+!|Scenario        |refresh page                      |
+|open             |https://mail.google.com|URL       |
+|variable         |popUpExists            |equals  to|
+|verify  popup  is|visible                           |
+|If               |{$popUpExists}                    |
+|popup  action    |ok                                |
+|End If                                              |
+
+!| Scenario         |read gmail data from excel sheet                                             |
+|load               |data     |ExcelSheetFrom  |!-{$suitePath}/data/gmail_data.xlsx-!|In|read|Mode|
+|variable           |recepient|equals to                                                          |
+|get  from excel row|2        |with column name|Send To                                           |
+|variable           |cc       |equals to                                                          |
+|get  from excel row|2        |with column name|CC                                                |
+|variable           |bcc      |equals  to                                                         |
+|get  from excel row|2        |with column name|BCC                                               |
+|variable           |subject  |equals  to                                                         |
+|get  from excel row|2        |with column name|Subject                                           |
+|variable           |body     |equals  to                                                         |
+|get  from excel row|2        |with column name|Body                                              |
+|variable           |driveFile|equals  to                                                         |
+|get  from excel row|2        |with column name|Drive File                                        |
+|variable           |photo    |equals  to                                                         |
+|get  from excel row|2        |with column name|Photo                                             |
+|unload excel sheet                                                                               |

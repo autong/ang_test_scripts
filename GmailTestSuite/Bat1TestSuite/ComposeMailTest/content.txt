@@ -1,0 +1,33 @@
+|import                          |
+|net.indecomm.autong.api.fitnesse|
+
+----
+'''Test Steps'''
+1. Open the google mail
+2. Open compose mail section
+3. Compose text and verify formating
+4. Attach a file from google drive  
+5. Attach a photo from google photos
+6. Send the mail to self
+7. Verify undo feature
+8. Verify if the mail has arrived
+
+'''Pre condition for script execution'''
+Test URL: https://mail.google.com/
+
+
+'''Post execution instructions'''
+Not applicable
+----
+
+
+!include -c <GmailTestSuite.GlobalCommonScenarios
+!include -c <GmailTestSuite.Bat1TestSuite.Bat1CommonScenarios
+
+
+!|Script                   |AutomationNG                                    |
+|set test                  |${PAGE_NAME}                                    |
+|set result name           |${PAGE_NAME}          |at path     |${PAGE_PATH}|
+|start browser and open url|${DEFAULT_URL}                                  |
+|read gmail data from excel sheet                                           |
+|login with username       |testemail744@gmail.com|and password|test@744    |

@@ -1,0 +1,221 @@
+!|ConfigTable       |
+|key          |value|
+|PAGE_TIME_OUT|10   |
+|WAIT_TIME_OUT|60   |
+
+|Data Repository     |DATASHEET                                  |
+|Id                  |Value                                      |
+|url                 |!-http://www.gmail.com/-!                  |
+|downloadfilelocation|!-/Users/Priyanka/Downloads/testPhoto.png-!|
+
+
+|Object Repository        |INBOX                                                                                     |
+|Id                       |Value                                                                               |Type |
+|composebutton            |.//div[text()='COMPOSE']                                                            |xpath|
+|inboxmail                |(//div[@class='y6']/span[contains(text(),'Test Email')])[1]                         |xpath|
+|downloadcontent          |//img[@width > 300 and @height > 200]                                               |xpath|
+|downloadicon             |.//div[@aria-label='Download']                                                      |xpath|
+|searchfield              |.//input[@aria-label='Search']                                                      |xpath|
+|serchbutton              |.//*[@aria-label='Search Gmail']                                                    |xpath|
+|inboxlink                |.//span/a[contains(text(),'Inbox')]                                                 |xpath|
+|firstcheckbox            |(//div[@aria-checked='false'][@role='checkbox'])[1]                                 |xpath|
+|checkboxlabelnamedropdown|.//div[@role='menuitemcheckbox'][@title='MynewLabel'][@aria-checked='false']/div/div|xpath|
+|applybutton              |//div[@role='menuitem']/div[text()='Apply']                                         |xpath|
+
+
+|Object Repository        |LOGIN                                                      |
+|Id                       |Value                                                |Type |
+|usernamefield            |identifierId                                         |id   |
+|nextbutton               |identifierNext                                       |id   |
+|passwordfield            |.//*[@id='password']//input                          |xpath|
+|loginbutton              |passwordNext                                         |id   |
+|confirmrecoverymailbutton|.//div[text()='Confirm your recovery email']/..      |xpath|
+|recoverymailfield        |.//input[@name='knowledgePreregisteredEmailResponse']|xpath|
+|recoverynextbutton       |next                                                 |id   |
+
+|Object Repository|CALENDARPAGE                                                           |
+|Id               |Value                                                            |Type |
+|createbutton     |.//div[text()='Create']                                          |xpath|
+|eventtitlefield  |.//input[@title='Event title']                                   |xpath|
+|fromdate         |.//input[@title='From date']                                     |xpath|
+|fromtime         |.//input[@title='From time']                                     |xpath|
+|untiltime        |.//input[@title='Until time']                                    |xpath|
+|untildate        |.//input[@title='Until date']                                    |xpath|
+|location         |.//input[@placeholder='Enter a location']                        |xpath|
+|description      |.//label[text()='Description']/../following-sibling::td//textarea|xpath|
+
+|Object Repository |GMAIL                                                    |
+|Id                |Value                                              |Type |
+|composebutton     |.//div[text()='COMPOSE']                           |xpath|
+|tofield           |.//textarea[@aria-label='To']                      |xpath|
+|addccbutton       |.//span[contains(@aria-label,'Add Cc Recipients')] |xpath|
+|addbccbutton      |.//span[contains(@aria-label,'Add Bcc Recipients')]|xpath|
+|ccfield           |.//textarea[@aria-label='Cc']                      |xpath|
+|bccfield          |.//textarea[@aria-label='Bcc']                     |xpath|
+|subjectfield      |.//input[@placeholder='Subject']                   |xpath|
+|bodyarea          |.//div[@aria-label='Message Body']                 |xpath|
+|sendbutton        |.//div[text()='Send']                              |xpath|
+|insertdrivebutton |.//div[@aria-label='Insert files using Drive']     |xpath|
+|bodycontent       |(.//*[@aria-label='Message Body'])[2]              |xpath|
+|close             |.//img[@data-tooltip='Save & Close']               |xpath|
+|inbox             |//a[contains(@aria-label,'Inbox ')]                |xpath|
+|formattogglebutton|.//div[@data-tooltip='Formatting options']         |xpath|
+|undolink          |link_undo                                          |id   |
+|italicformatbutton|.//div[@data-tooltip='Italic ‪(Ctrl-I)‬']          |xpath|
+|boldformatbutton  |.//div[@data-tooltip='Bold ‪(Ctrl-B)‬']            |xpath|
+
+
+|Object Repository|DRAFT                                                                           |
+|Id               |Value                                                                     |Type |
+|selectallcheckbox|(.//div[@aria-label='Select']//div[@role='presentation'])[2]              |xpath|
+|discarddrafts    |.//div[contains(text(),'Discard drafts')]                                 |xpath|
+|checknomailbox   |.//td[contains(text(),'any saved drafts')]                                |xpath|
+|testmail         |(.//font[text()='Draft']/../../..//span[contains(text(),'Test Email')])[1]|xpath|
+
+|Object Repository|CHAT                                                                                                         |
+|Id               |Value                                                                                                  |Type |
+|roster           |(.//iframe[contains(@src, 'hangouts.google.com') and contains(@style, 'width: 100')])[1]               |xpath|
+|user             |.//span[text()='Bhagavan Kailar']                                                                      |xpath|
+|profileframe     |.//iframe[contains(@src,'apis.google.com') and contains(@style, 'width: 350')]                         |xpath|
+|popup            |.//img[contains(@title,'Bhagavan Kailar') and contains(@width, '90')]                                  |xpath|
+|chatframe        |(.//iframe[contains(@src, 'hangouts.google.com') and contains(@style, 'width: 100')])[1]               |xpath|
+|textframe        |(.//iframe[contains(@src, 'hangouts.google.com/webchat/u/0/frame?') and not(contains(@width, '1'))])[1]|xpath|
+|textbox          |.//div[@role='textbox']                                                                                |xpath|
+
+|Object Repository|SETTING                                                                               |
+|Id               |Value                                                                           |Type |
+|button           |.//div[contains(@role,'button') and contains(@title,'Settings')]                |xpath|
+|link             |.//div[contains(text(),'Settings')]                                             |xpath|
+|respondertext    |.//span[contains(text(),'Vacation responder:')]                                 |xpath|
+|responderradio   |.//label[contains(text(),'Vacation responder on')]                              |xpath|
+|respondersubject |.//input[contains(@type,'text') and contains(@aria-label,'Subject')]            |xpath|
+|respondermessage |.//div[contains(@role,'textbox') and contains(@aria-label,'Vacation responder')]|xpath|
+|respondersave    |.//button[contains(text(),'Save Changes')]                                      |xpath|
+|responderalert   |.//div[contains(text(),'On Vacation')]                                          |xpath|
+|responderendlink |.//span[contains(text(),'End now')]                                             |xpath|
+|filterlink       |//a[contains(text(),'Filters and Blocked Addresses')]                           |xpath|
+|labelbutton      |//*[contains(text(),'General')]/parent::div/following::div[1]/a                 |xpath|
+
+
+|Object Repository|FORUMS                      |
+|Id               |Value                 |Type |
+|fourmstab        |//div[text()='Forums']|xpath|
+
+
+
+|Object Repository     |FILTER                                                                                                        |
+|Id                    |Value                                                                                                   |Type |
+|deletelink            |(//span[contains(text(),'delete')])[1]                                                                  |xpath|
+|selectalllink         |(//span[contains(text(),'All')])[1]                                                                     |xpath|
+|deletebutton          |.//button[contains(text(),'Delete')]                                                                    |xpath|
+|okbutton              |//button[contains(text(),'OK')]                                                                         |xpath|
+|createfilterlink      |//span[contains(text(),'Create a new filter')]                                                          |xpath|
+|subjecttext           |//label[contains(text(),'Subject')]/parent::span/following-sibling::span/input                          |xpath|
+|categorizelist        |(//label[contains(text(),'Categorize as:')]/parent::div/div[@role='listbox'])[2]                        |xpath|
+|createfiltersearchlink|//div[contains(text(),'Create filter with this search')]                                                |xpath|
+|createfilterbutton    |//div[@role='button'][contains(text(),'Create filter')]                                                 |xpath|
+|filterpopup           |//span[contains(text(),'Your filter was created.')]                                                     |xpath|
+|unreadmail            |(//span/b[contains(text(),'Automation Testcase')])[1]                                                   |xpath|
+|subjectcontent        |//h2[contains(text(),'Automation Testcase')]                                                            |xpath|
+|mail                  |(//*[contains(text(),'Automation Testcase')] )[3]                                                       |xpath|
+|selectbutton          |//div[@aria-label='Select']                                                                             |xpath|
+|selectall             |(//div[@selector='all'])[1]                                                                             |xpath|
+|deletebuttons         |//div[@aria-label='Delete']/div/div                                                                     |xpath|
+|categorizecheckbox    |//label[contains(text(),'Categorize as:')]/preceding-sibling::input                                     |xpath|
+|categorycheckbox      |.//div[text()='Choose category...' and @role='option']                                                  |xpath|
+|promotionsdropdown    |//label[contains(text(),'Categorize as:')]/parent::div/div[@role='listbox']/div/div[text()='Promotions']|xpath|
+|forumsdropdown        |//label[contains(text(),'Categorize as:')]/parent::div/div[@role='listbox']/div/div[text()='Forums']    |xpath|
+ 
+
+|Object Repository|CONTACT                                                                    |
+|Id               |Value                                                                |Type |
+|navlink          |.//div[contains(@aria-label,'Navigate to')]                          |xpath|
+|link             |.//div[contains(text(),'Contacts')]                                  |xpath|
+|list             |.//span[contains(text(),'Test Testing')]                             |xpath|
+|popup            |.//div[contains(text(),'Test Testing') and contains(@role,'heading')]|xpath|
+|popupclose       |.//div[contains(@aria-label,'Close')]                                |xpath|
+
+|Object Repository|THEME                                                                 |
+|Id               |Value                                                           |Type |
+|button           |.//div[contains(@role,'button') and contains(@title,'Settings')]|xpath|
+|link             |.//div[contains(text(),'Themes')]                               |xpath|
+|darktheme        |.//div[contains(@aria-label,'Dark')]                            |xpath|
+|save             |.//div[contains(text(),'Save')]                                 |xpath|
+|lighttheme       |.//div[contains(@aria-label,'Light')]                           |xpath|
+|buttonre         |.//div[@data-tooltip='Settings']                                |xpath|
+
+|Object Repository|SEARCH                                                                                                     |
+|Id               |Value                                                                                                |Type |
+|inputtext        |.//input[contains(@type,'text') and contains(@aria-label,'Search')]                                  |xpath|
+|button           |.//button[contains(@aria-label,'Search Gmail')]                                                      |xpath|
+|options          |.//div[contains(@role,'button') and contains(@data-tooltip,'Show search options')]                   |xpath|
+|extrainputtext   |.//input[contains(@type,'text') and contains(@value,'Test Email')]                                   |xpath|
+|innerbutton      |.//div[contains(@role,'button') and contains(@data-tooltip,'Search Mail')]                           |xpath|
+|mailval          |((.//div[contains(@role,'main')]//table)[1]/tbody/tr//td//div/span[contains(text(),'Test Email')])[1]|xpath|
+
+|Object Repository|MULTITHREAD                                                                                                                                              |
+|Id               |Value                                                                                                                                              |Type |
+|maillist         |(.//div[contains(@role,'main')]//table)[2]/tbody                                                                                                   |xpath|
+|singlemail       |((.//div[contains(@role,'main')]//table)[2]/tbody/tr/td//span[contains(@email,'testemail744@gmail.com')]/parent::div[contains(text(),'(')])[last()]|xpath|
+|mailheading      |.//h2[contains(text(),'Test Email')]                                                                                                               |xpath|
+|mailreply        |.//div[contains(@role,'button') and contains(@aria-label,'Reply')]                                                                                 |xpath|
+|replybody        |.//div[contains(@role,'textbox') and contains(@aria-label,'Message Body')]                                                                         |xpath|
+|sendreply        |.//div[contains(@role,'button') and contains(text(),'Send')]                                                                                       |xpath|
+|inboxlink        |.//a[contains(text(),'Inbox')]                                                                                                                     |xpath|
+|threadtext       |(.//div[contains(@role,'listitem')][last()]//div[contains(text(),'One more')])[1]                                                                  |xpath|
+
+|Object Repository|TOOL                                                                                                                                                               |
+|Id               |Value                                                                                                                                                        |Type |
+|unreadmail       |(.//div[contains(@role,'main')]//table)[2]/tbody/tr/td/div[contains(@role,'link')]//span/b[contains(text(),'Delete mail test')]                              |xpath|
+|deletemail       |((.//div[contains(@role,'main')]//table)[2]/tbody/tr/td/div[contains(@role,'link')]//span[contains(text(),'Delete mail test')]/ancestor::td/../td[2])[last()]|xpath|
+|deletebutton     |.//div[contains(@role,'button') and contains(@title,'Delete')]                                                                                               |xpath|
+
+
+|Object Repository|TRASH                                                                                    |
+|Id               |Value                                                                              |Type |
+|emptytrash       |.//span[contains(@role,'button') and contains(text(),'Empty Trash now')]           |xpath|
+|alertheading     |.//span[contains(@role,'heading') and contains(text(),'Confirm deleting messages')]|xpath|
+|alertbutton      |(.//button[contains(@name,'ok') and contains(text(),'OK')])[last()]                |xpath|
+
+|Object Repository|TOOLSPLIT                                                                                                                                    |
+|Id               |Value                                                                                                                                  |Type |
+|selectbox        |.//div[contains(@role,'button') and contains(@aria-label,'Toggle split pane mode')]/../div[2]                                          |xpath|
+|selectvertical   |.//div[contains(@role,'menuitem') and contains(@selector,'vertical')]                                                                  |xpath|
+|selecthorizontal |.//div[contains(@role,'menuitem') and contains(@selector,'horizontal')]                                                                |xpath|
+|selectnosplit    |.//div[contains(@role,'menuitem') and contains(@selector,'nosplit')]                                                                   |xpath|
+|mailvertical     |((.//div[contains(@role,'main')]//table)[2]/tbody/tr/td[contains(@role,'link')]//span[contains(text(),'Delete mail test')])[last()]    |xpath|
+|mailhorizontal   |((.//div[contains(@role,'main')]//table)[2]/tbody/tr/td/div[contains(@role,'link')]//span[contains(text(),'Delete mail test')])[last()]|xpath|
+|mailhead         |.//h2[contains(text(),'Delete mail test')]                                                                                             |xpath|
+
+|Object Repository        |LABEL                                                                                                                  |
+|Id                       |Value                                                                                                            |Type |
+|allremove                |.//span[@role='link'][text()='remove']                                                                           |xpath|
+|removelink               |(.//span[@role='link'][text()='remove'])[1]                                                                      |xpath|
+|okbutton                 |//button[text()='Delete'][@name='ok']                                                                            |xpath|
+|createnewlabelbutton     |//button[text()='Create new label']                                                                              |xpath|
+|createpopup              |//span[@role='heading']                                                                                          |xpath|
+|createbuton              |//button[text()='Create']                                                                                        |xpath|
+|newlabeltextfield        |//label[contains(text(),'Please enter a new label name')]/../../input                                            |xpath|
+|verifylabelmessage       |//div[contains(text(),' was created.')]                                                                          |xpath|
+|leftsidecreatelabel      |//div/span/a[contains(text(),'MynewLabel')]                                                                      |xpath|
+|showinlabelistdropdown   |//span[contains(text(),'Show in label list')]/span                                                               |xpath|
+|showallitemlabellist     |(.//span[contains(text(),'Show in label list')]/following::div/div[@role='menuitem']/div[text()='Show all'])[1]  |xpath|
+|hideallitemlabellist     |(.//span[contains(text(),'Show in label list')]/following::div/div[@role='menuitem']/div[text()='Hide all'])[1]  |xpath|
+|showinmessagelist        |//span[contains(text(),'Show in message list')]/span                                                             |xpath|
+|showallitemmessagelist   |(.//span[contains(text(),'Show in message list')]/following::div/div[@role='menuitem']/div[text()='Show all'])[1]|xpath|
+|hidealltemmessagelist    |(.//span[contains(text(),'Show in message list')]/following::div/div[@role='menuitem']/div[text()='Hide all'])[1]|xpath|
+|editlink                 |(.//span[@role='link'][text()='edit'])[1]                                                                        |xpath|
+|removebutton             |(//div/div[contains(text(),'Remove label')])[1]                                                                  |xpath|
+|refreshbutton            |(//div[@aria-label='Refresh'])[2]                                                                                |xpath|
+|labelname                |//div[contains(text(),'MynewLabel')]                                                                             |xpath|
+|leftsidelabel            |//div/span/a[contains(@title,'MynewLabel')]                                                                      |xpath|
+|createnewbuttons         |//div[contains(@role,'menuitem')]/div[contains(text(),'Create new')]                                             |xpath|
+|creates                  |//button[text()='Create']                                                                                        |xpath|
+|labelnameinsdiemail      |//div[@name='MynewLabel'][@role='button']                                                                        |xpath|
+|verifycheckboxindropdown |//div[@role='menuitemcheckbox'][@title='MynewLabel'][@aria-checked='false']                                      |xpath|
+|createlabeltextfield     |//label[contains(text(),'Please enter a new label name')]/../../input                                            |xpath|
+|verifylabelnamedropdown  |//div[@role='menuitemcheckbox'][@title='MynewLabel']/div                                                         |xpath|
+|applybutton              |//div[@role='menuitem']/div[text()='Apply']                                                                      |xpath|
+|checkboxlabelnamedropdown|.//div[@role='menuitemcheckbox'][@title='MynewLabel'][@aria-checked='false']/div/div                             |xpath|
+
+
